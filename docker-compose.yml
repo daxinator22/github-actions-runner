@@ -1,3 +1,12 @@
 services:
   actions-runner:
     build: .
+    environment:
+      GITHUB_URL: $GITHUB_URL
+      RUNNER_TOKEN: $RUNNER_TOKEN
+      RUNNER_NAME: ${RUNNER_NAME:-docker-runner}
+    volumes:
+      - actions-runner-data:/actions-runner
+
+volumes:
+  actions-runner-data:
